@@ -1,0 +1,35 @@
+/* purgecss start ignore */
+@tailwind base;
+@tailwind components;
+/* purgecss end ignore */
+
+
+.btn {
+  @apply transition duration-500 ease-in-out font-bold py-1 px-2 rounded border-2 border-transparent;
+}
+
+.btn:hover{
+  @apply border-gray-400
+}
+
+.link{
+  @apply transition duration-500 ease-in-out px-1 font-bold border-b-2 border-transparent;  
+}
+
+.link:hover{
+  @apply border-gray-500 text-gray-500
+}
+
+.link:active{
+  @apply border-blue-900 text-blue-900
+}
+
+
+
+@tailwind utilities;
+
+#app {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}

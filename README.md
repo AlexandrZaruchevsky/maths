@@ -1,4 +1,4 @@
-# vue-tailwind
+# vue-3-app-with-tailwind
 
 ## Project setup
 ```

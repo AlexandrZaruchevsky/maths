@@ -1,13 +1,10 @@
 <template>
-  <div>About</div>
+  <h1>Error page</h1>
 </template>
 
 <script>
 export default {
+    name:'ErrorPage'
 
 }
 </script>
-
-<style>
-
-</style>

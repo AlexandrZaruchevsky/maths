@@ -12,13 +12,14 @@
         v-for="(item, index) in arr"
         :key="index"
         :example="item"
+        :new="true"
         @set-result="setResult"
       />
     </div>
     <div class="p-2 border-t-2 border-teal-800 flex">
       <button
         class="btn mr-auto bg-blue-600 text-gray-100"
-        @click="generateArr(amount)"
+        @click="generateArrQ(amount)"
       >
         Generate
       </button>
@@ -27,17 +28,26 @@
       </button>
     </div>
   </div>
+  <result :result="res" v-show="resultShow" @result-show="result"/>
 </template>
 
 <script>
 import MathRow from "../../components/MathRow.vue";
-import shuffle from "../../utils/shuffle";
+import Result from '../../components/Result.vue';
+
+import { generateArr, result } from "../../utils/Maths";
 
 export default {
-  components: { MathRow },
+  components: { MathRow, Result },
   name: "Math",
   data() {
     return {
+      resultShow: false,
+      res: { 
+        amount:0, 
+        success:0, 
+        fail:0
+      },
       arr: [],
       primer: {
         first: 0,
@@ -49,43 +59,21 @@ export default {
       amount: 8,
     };
   },
-  methods: {
-    generateArr: function(amount) {
-      let one, two;
-      let arrG = [],
-        priG = {},
-        znak = "+";
-      for (let i = 0; i < amount * 30; i++) {
-        one = this.rnd(11);
-        two = one != 10 ? this.rnd(10 - one) : 0;
-        priG = {
-          first: one,
-          second: two,
-          znak: znak,
-          result: -1,
-          validity: znak == "+" ? one + two : one - two,
-        };
-        arrG.push(priG);
-      }
-      let r = arrG.filter((item) => item.first != 0 && item.second != 0);
-      let r0 = arrG
-        .filter((item) => item.first == 0 || item.second == 0)
-        .slice(1, 2);
-      arrG = [...shuffle([...shuffle([...r]).slice(1, amount + 1), ...r0])];
-      this.arr = [];
-      for (let i = 0; i < arrG.length; i++) {
-        this.arr.push({
-          idx: i,
-          ...arrG[i],
-        });
-      }
-      console.log(this.arr);
+  computed: {
+    arrC: function() {
+      return this.arr;
     },
-    rnd: function getRandomInt(max) {
-      return Math.floor(Math.random() * Math.floor(max));
+  },
+  methods: {
+    generateArrQ: function(amount) {
+      this.arr=[];
+      setTimeout(()=>{
+        this.arr = generateArr(amount);
+      },0) 
     },
     result: function() {
-      console.log(this.arr);
+      this.res = result(this.arr);
+      this.resultShow = !this.resultShow
     },
     setResult: function(idx, payload) {
       let el = this.arr.find((item) => item.idx == idx);
@@ -101,7 +89,6 @@ export default {
         },
         ...this.arr.slice(idx + 1, this.arr.length),
       ];
-      console.log(this.arr);
     },
   },
 };

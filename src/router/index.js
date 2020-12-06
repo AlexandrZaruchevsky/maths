@@ -8,6 +8,11 @@ const routes = [
   },
   {
     path:'/math',
+    name:'Math1',
+    component:()=>import('../views/Maths/Math.vue')
+  },
+  {
+    path:'/',
     name:'Math',
     component:()=>import('../views/Maths/Math.vue')
   },

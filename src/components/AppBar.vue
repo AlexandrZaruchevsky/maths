@@ -8,11 +8,11 @@
         &#9776;</button>
     </div>
     <div class="flex items-center pl-4">
-      <router-link to="/" class="link">Home</router-link>
+      <!-- <router-link to="/" class="link">Home</router-link> -->
       <router-link to="/math" class="link">Maths</router-link>
     </div>
     <div class="flex ml-auto mr-0 items-center">
-      <router-link to="/" class="link">Logout</router-link>
+      <!-- <router-link to="/" class="link">Logout</router-link> -->
     </div>
   </div>
   <drawer :drawerOpen="drawerOpen" @drawer-toogle="toogleDrawer"></drawer>

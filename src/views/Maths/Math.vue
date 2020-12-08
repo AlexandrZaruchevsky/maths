@@ -12,15 +12,12 @@
         v-for="(item, index) in arr"
         :key="index"
         :example="item"
-        :new="true"
         @set-result="setResult"
-      />
+        :id="item.idx"
+      ></math-row>
     </div>
     <div class="p-2 border-t border-teal-800 flex">
-      <button
-        class="btn btn-primary"
-        @click="generateArrQ(amount)"
-      >
+      <button class="btn btn-primary" @click="generateArrQ(amount)">
         Generate
       </button>
       <button class="btn btn-success ml-auto" @click="result">
@@ -28,12 +25,12 @@
       </button>
     </div>
   </div>
-  <result :result="res" v-show="resultShow" @result-show="result"/>
+  <result :result="res" v-show="resultShow" @result-show="result" @result-invalid="resultInvalid"/>
 </template>
 
 <script>
 import MathRow from "../../components/MathRow.vue";
-import Result from '../../components/Result.vue';
+import Result from "../../components/Result.vue";
 
 import { generateArr, result } from "../../utils/Maths";
 
@@ -43,10 +40,10 @@ export default {
   data() {
     return {
       resultShow: false,
-      res: { 
-        amount:0, 
-        success:0, 
-        fail:0
+      res: {
+        amount: 0,
+        success: 0,
+        fail: 0,
       },
       arr: [],
       primer: {
@@ -66,14 +63,14 @@ export default {
   },
   methods: {
     generateArrQ: function(amount) {
-      this.arr=[];
-      setTimeout(()=>{
+      this.arr = [];
+      setTimeout(() => {
         this.arr = generateArr(amount);
-      },0) 
+      }, 0);
     },
     result: function() {
       this.res = result(this.arr);
-      this.resultShow = !this.resultShow
+      this.resultShow = !this.resultShow;
     },
     setResult: function(idx, payload) {
       let el = this.arr.find((item) => item.idx == idx);
@@ -89,6 +86,16 @@ export default {
         },
         ...this.arr.slice(idx + 1, this.arr.length),
       ];
+    },
+    resultInvalid() {
+      let arrr = [...this.arr];
+      for (let i = 0; i < arrr.length; i++) {
+        if (arrr[i].result == arrr[i].validity) {
+          document.getElementById(i).classList.remove("text-red-700");
+        }else{
+          document.getElementById(i).classList.add("text-red-700");
+        }
+      }
     },
   },
 };

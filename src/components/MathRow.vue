@@ -28,7 +28,6 @@ export default {
   name: "MathRow",
   props: {
     example: Object,
-    new: Boolean,
   },
   data() {
     return {

@@ -75,6 +75,7 @@ export default {
   methods:{
     resShow:function(){
       this.$emit("result-show");
+      this.$emit("result-invalid");
     }
   }
 };

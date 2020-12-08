@@ -6,8 +6,8 @@
   >
     <div class="pt-5">
       <div class="flex flex-col px-4">
-        <router-link to="/" class="link w-full mb-2 px-2" @click.prevent="clickLink">Home</router-link>
-        <router-link to="/about" class="link w-full px-2" @click.prevent="clickLink">About</router-link>
+        <router-link to="/" class="link-green w-full mb-2 px-2" @click.prevent="clickLink">Home</router-link>
+        <router-link to="/about" class="link-green w-full px-2" @click.prevent="clickLink">About</router-link>
       </div>
       <ul class="list-none items-start px-10 flex flex-col">
         <li class="w-full"></li>

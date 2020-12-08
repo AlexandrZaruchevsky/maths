@@ -1,7 +1,7 @@
 import shuffle from "./shuffle";
 
 const generateArr = function(kol = 5) {
-  let arrG = [...genArray(kol * 30, '+'), ...genArray(kol * 30, '-')];
+  let arrG = [...genArray(kol * 30, "+"), ...genArray(kol * 30, "-")];
   let r = arrG.filter((item) => item.first != 0 && item.second != 0);
   let arr0 = arrG.filter((item) => item.first == 0 || item.second == 0);
   let r0 = [...shuffle(arr0)].slice(1, 2);
@@ -39,7 +39,7 @@ const genArray = function(amount = 5, znakIn = "+") {
     if (znakIn == "+") {
       one = rnd(11);
       two = one != 10 ? rnd(10 - one) : 0;
-    } else if ((znakIn == "-")) {
+    } else if (znakIn == "-") {
       one = rnd(10) + 1;
       two = rnd(one + 1);
     }

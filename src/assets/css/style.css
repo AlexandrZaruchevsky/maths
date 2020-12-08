@@ -1,35 +1,97 @@
-/* purgecss start ignore */
 @tailwind base;
 @tailwind components;
-/* purgecss end ignore */
 
+/*Buttons*/
 
 .btn {
-  @apply transition duration-500 ease-in-out font-bold py-1 px-2 rounded border-2 border-transparent;
+  @apply rounded py-1 px-2 text-white border-2 border-transparent
+}
+.btn:focus {
+  @apply bg-opacity-75;
+}
+.btn:active {
+  @apply bg-opacity-75;
+}
+.btn:hover {
+  @apply border-2 border-gray-400 shadow-lg;
 }
 
-.btn:hover{
-  @apply border-gray-400
+.btn-primary {
+  @apply btn bg-blue-900 bg-opacity-75;
 }
+.btn-primary:focus {
+  @apply btn bg-blue-800;
+}
+.btn-primary:active {
+  @apply btn bg-blue-700;
+}
+
+.btn-secondary {
+  @apply btn bg-gray-900 bg-opacity-75;
+}
+.btn-secondary:focus {
+  @apply btn bg-gray-800;
+}
+.btn-secondary:active {
+  @apply btn bg-gray-700;
+}
+
+.btn-success {
+  @apply btn bg-green-900 bg-opacity-75;
+}
+.btn-success:focus {
+  @apply btn bg-green-800;
+}
+.btn-success:active {
+  @apply btn bg-green-700;
+}
+
+.btn-warning {
+  @apply btn bg-red-900 bg-opacity-75;
+}
+.btn-warning:focus {
+  @apply btn bg-red-800;
+}
+.btn-warning:active {
+  @apply btn bg-red-700;
+}
+
+
+/*Links*/
 
 .link{
-  @apply transition duration-500 ease-in-out px-1 font-bold border-b-2 border-transparent;  
+  @apply border-b-2 border-transparent;
 }
-
 .link:hover{
-  @apply border-gray-500 text-gray-500
+  @apply border-b-2;
 }
 
-.link:active{
-  @apply border-blue-900 text-blue-900
+.link-red {
+  @apply link text-red-800;
+}
+.link-red:hover {
+  @apply link border-red-600;
 }
 
+.link-blue {
+  @apply link text-blue-800 ;
+}
+.link-blue:hover {
+  @apply link border-blue-600;
+}
 
+.link-green {
+  @apply link text-green-800
+}
+.link-green:hover {
+  @apply link border-green-600;
+}
+
+.link-gray {
+  @apply link text-gray-800
+}
+.link-gray:hover {
+  @apply link border-gray-600;
+}
 
 @tailwind utilities;
-
-#app {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh;
-}

@@ -30,8 +30,8 @@
             <div class="w-3/12 text-right">{{result.fail}}</div>
           </div>
         </div>
-        <div class="flex p-2">
-          <button class="btn mx-auto" @click="resShow">
+        <div class="flex p-2 justify-center">
+          <button class="btn-success" @click="resShow">
             Ok
           </button>
         </div>

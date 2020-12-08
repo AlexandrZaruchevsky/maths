@@ -1,9 +1,9 @@
 <template>
   <div
-    class="border-2 border-teal-800 mx-auto w-full lg:w-1/3 md:w-1/2 shadow-lg"
+    class="border rounded border-teal-800 mx-auto w-full lg:w-1/3 md:w-1/2 shadow-lg"
   >
     <div
-      class="border-b-2 border-teal-800 p-1 text-lg font-bold bg-teal-700 text-gray-100"
+      class="border-b rouded-t border-teal-800 p-2 text-xl font-bold bg-gradient-to-r from-blue-800 to-blue-200 text-gray-100"
     >
       Maths
     </div>
@@ -16,14 +16,14 @@
         @set-result="setResult"
       />
     </div>
-    <div class="p-2 border-t-2 border-teal-800 flex">
+    <div class="p-2 border-t border-teal-800 flex">
       <button
-        class="btn mr-auto bg-blue-600 text-gray-100"
+        class="btn-primary"
         @click="generateArrQ(amount)"
       >
         Generate
       </button>
-      <button class="btn bg-green-600 text-gray-100" @click="result">
+      <button class="btn-success ml-auto" @click="result">
         Result
       </button>
     </div>

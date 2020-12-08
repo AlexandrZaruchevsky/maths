@@ -31,7 +31,7 @@
           </div>
         </div>
         <div class="flex p-2 justify-center">
-          <button class="btn-success" @click="resShow">
+          <button class="btn btn-success" @click="resShow">
             Ok
           </button>
         </div>

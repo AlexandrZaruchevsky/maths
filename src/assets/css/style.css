@@ -1,11 +1,10 @@
+/* purgecss start ignore */
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
-
-/*Buttons*/
+/* purgecss end ignore */
 
 .btn {
-  @apply rounded py-1 px-2 text-white border-2 border-transparent
+  @apply rounded py-1 px-2 text-white border-2 border-transparent;
 }
 .btn:focus {
   @apply bg-opacity-75;
@@ -57,9 +56,6 @@
   @apply btn bg-red-700;
 }
 
-
-/*Links*/
-
 .link{
   @apply border-b-2 border-transparent;
 }
@@ -95,9 +91,4 @@
   @apply link border-gray-600;
 }
 
-*{
-  padding: 0;
-  margin: 0;
-}
-
-
+@tailwind utilities;

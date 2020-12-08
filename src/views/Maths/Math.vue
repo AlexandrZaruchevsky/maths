@@ -18,12 +18,12 @@
     </div>
     <div class="p-2 border-t border-teal-800 flex">
       <button
-        class="btn-primary"
+        class="btn btn-primary"
         @click="generateArrQ(amount)"
       >
         Generate
       </button>
-      <button class="btn-success ml-auto" @click="result">
+      <button class="btn btn-success ml-auto" @click="result">
         Result
       </button>
     </div>

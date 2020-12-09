@@ -5,7 +5,7 @@
     <div
       class="border-b rouded-t border-teal-800 p-2 text-xl font-bold bg-gradient-to-r from-blue-800 to-blue-200 text-gray-100"
     >
-      Счёт в пределах 10
+      Счёт в пределах 20
     </div>
     <div class="px-1">
       <math-row
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import MathRow from "../../components/MathRow.vue";
+import MathRow from "../../components/MathRow2.vue";
 import Result from "../../components/Result.vue";
 
 import { generateArr, result } from "../../utils/Maths";
@@ -65,7 +65,7 @@ export default {
     generateArrQ: function(amount) {
       this.arr = [];
       setTimeout(() => {
-        this.arr = generateArr(amount);
+        this.arr = generateArr(amount, 20);
       }, 0);
     },
     result: function() {

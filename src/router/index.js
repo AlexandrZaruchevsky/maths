@@ -17,6 +17,11 @@ const routes = [
     component:()=>import('../views/Maths/Math.vue')
   },
   {
+    path:'/math20',
+    name: 'Math20',
+    component: ()=>import('../views/Maths/Math20.vue')
+  },
+  {
     path: '/:catchAll(.*)',
     name: 'NotFound',
     component: () => import('../views/404.vue'),

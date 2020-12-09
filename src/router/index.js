@@ -2,16 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
-    path: '/about',
-    name: 'About',
-    component:()=>import('../views/About.vue')
-  },
-  {
-    path:'/math',
-    name:'Math1',
-    component:()=>import('../views/Maths/Math.vue')
-  },
-  {
     path:'/',
     name:'Math',
     component:()=>import('../views/Maths/Math.vue')
@@ -20,6 +10,11 @@ const routes = [
     path:'/math20',
     name: 'Math20',
     component: ()=>import('../views/Maths/Math20.vue')
+  },
+  {
+    path:'/multi',
+    name:'Multi',
+    component:()=>import('../views/Maths/Multiply.vue')
   },
   {
     path: '/:catchAll(.*)',

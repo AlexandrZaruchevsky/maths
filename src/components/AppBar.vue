@@ -4,8 +4,7 @@
       <icon-menu class="cursor-pointer" @click="toogleDrawer"/>
     </div>
     <div class="flex items-center pl-4">
-      <!-- <router-link to="/" class="link">Home</router-link> -->
-      <router-link to="/math" class="link">Maths</router-link>
+      Maths
     </div>
     <div class="flex ml-auto mr-0 items-center">
       <!-- <router-link to="/" class="link">Logout</router-link> -->

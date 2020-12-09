@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "MathRow",
+  name: "MathRow2",
   props: {
     example: Object,
   },

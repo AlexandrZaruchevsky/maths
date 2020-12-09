@@ -7,7 +7,8 @@
     <div class="pt-5">
       <div class="flex flex-col px-4">
         <router-link to="/" class="link-green w-full mb-2 px-2" @click.prevent="clickLink">Счет в пределах 10</router-link>
-        <router-link to="/math20" class="link-green w-full px-2" @click.prevent="clickLink">Счет в пределах 20</router-link>
+        <router-link to="/math20" class="link-green w-full mb-2 px-2" @click.prevent="clickLink">Счет в пределах 20</router-link>
+        <router-link to="/multi" class="link-green w-full px-2" @click.prevent="clickLink">Таблица умножения</router-link>
       </div>
       <ul class="list-none items-start px-10 flex flex-col">
         <li class="w-full"></li>

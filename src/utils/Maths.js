@@ -1,7 +1,10 @@
 import shuffle from "./shuffle";
 
 const generateArr = function(kol = 5, limit = 10) {
-  let arrG = [...genArray(kol * 30, limit, "+"), ...genArray(kol * 30, limit, "-")];
+  let arrG = [
+    ...genArray(kol * 30, limit, "+"),
+    ...genArray(kol * 30, limit, "-"),
+  ];
   let r = arrG.filter((item) => item.first != 0 && item.second != 0);
   let arr0 = arrG.filter((item) => item.first == 0 || item.second == 0);
   let r0 = [...shuffle(arr0)].slice(1, 2);
@@ -31,13 +34,13 @@ const result = function(arr) {
   };
 };
 
-const genArray = function(amount = 5, limit=10, znakIn = "+") {
+const genArray = function(amount = 5, limit = 10, znakIn = "+") {
   let one, two;
   let arrG = [],
     priG = {};
   for (let i = 0; i < amount; i++) {
     if (znakIn == "+") {
-      one = rnd(limit+1);
+      one = rnd(limit + 1);
       two = one != limit ? rnd(limit - one) : 0;
     } else if (znakIn == "-") {
       one = rnd(limit) + 1;
@@ -55,5 +58,30 @@ const genArray = function(amount = 5, limit=10, znakIn = "+") {
   return arrG;
 };
 
+const genArraMultiply = function(amount = 5) {
+  let arrTemp = [];
+  for (let i = 0; i < amount + 300; i++) {
+    let one = rnd(10);
+    let two = rnd(10);
+    let znakIn = "x";
+    let priG = {
+      first: one,
+      second: two,
+      znak: znakIn,
+      result: -1,
+      validity: znakIn == "x" ? one * two : one / two,
+    };
+    arrTemp.push(priG);
+  }
+  arrTemp = [...shuffle([...arrTemp])].slice(0, amount);
+  let arr = [];
+  for (let i = 0; i < arrTemp.length; i++) {
+    arr.push({
+      idx: i,
+      ...arrTemp[i],
+    });
+  }
+  return arr;
+};
 
-export { generateArr, result };
+export { generateArr, genArraMultiply, result };

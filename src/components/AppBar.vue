@@ -1,11 +1,7 @@
 <template>
   <div class="flex border-b-2 border-gray-200 p-1">
     <div class="flex items-center">
-      <button 
-        class="text-2xl"
-        @click.prevent="toogleDrawer"
-      >
-        &#9776;</button>
+      <icon-menu class="cursor-pointer" @click="toogleDrawer"/>
     </div>
     <div class="flex items-center pl-4">
       <!-- <router-link to="/" class="link">Home</router-link> -->
@@ -19,10 +15,12 @@
 </template>
 
 <script>
+import IconMenu from './icons/IconMenu'
 import Drawer from './Drawer.vue'
 export default {
   components:{
-    Drawer
+    Drawer,
+    IconMenu
   },
   data(){
     return{

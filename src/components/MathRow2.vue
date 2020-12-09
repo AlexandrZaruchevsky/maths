@@ -5,7 +5,7 @@
     <div class="text-3xl font-bold w-1/6">{{ example.second }}</div>
     <div class="text-3xl font-bold w-1/6">=</div>
     <div class="border-b-2 border-teal-800 ml-auto text-3xl font-bold w-2/6">
-      <input class="w-full" type="text" v-model="res" @input="setResult"/>
+      <input class="w-full" type="number" v-model="res" @input="setResult" align="right"/>
     </div>
   </div>
 </template>

@@ -8,7 +8,7 @@ const generateArr = function(kol = 5, limit = 10) {
   let r = arrG.filter((item) => item.first != 0 && item.second != 0);
   let arr0 = arrG.filter((item) => item.first == 0 || item.second == 0);
   let r0 = [...shuffle(arr0)].slice(1, 2);
-  arrG = [...shuffle([...shuffle([...r]).slice(1, kol + 1), ...r0])];
+  arrG = [...shuffle([...shuffle([...r]).slice(0, kol-1), ...r0])];
   let arr = [];
   for (let i = 0; i < arrG.length; i++) {
     arr.push({
@@ -25,8 +25,17 @@ const rnd = function getRandomInt(max) {
 
 const result = function(arr) {
   let amount = arr.length;
-  let success = arr.filter((item) => item.result == item.validity).length;
-  let fail = arr.filter((item) => item.result != item.validity).length;
+  let success = arr.filter((item) => {
+    if(item.result.trim()==="") {
+      return false
+    }
+    if(item.result == item.validity) return true;
+  }).length;
+  let fail = arr.filter((item) => {
+    if((item.result.trim()==="")||(item.result != item.validity)) {
+      return true
+    }
+  }).length;
   return {
     amount,
     success,
@@ -50,7 +59,7 @@ const genArray = function(amount = 5, limit = 10, znakIn = "+") {
       first: one,
       second: two,
       znak: znakIn,
-      result: -1,
+      result: "",
       validity: znakIn == "+" ? one + two : one - two,
     };
     arrG.push(priG);
@@ -68,7 +77,7 @@ const genArraMultiply = function(amount = 5) {
       first: one,
       second: two,
       znak: znakIn,
-      result: -1,
+      result: "",
       validity: znakIn == "x" ? one * two : one / two,
     };
     arrTemp.push(priG);

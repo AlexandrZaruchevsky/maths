@@ -5,16 +5,25 @@
     <div
       class="border-b rouded-t border-teal-800 p-2 text-xl font-bold bg-gradient-to-r from-blue-800 to-blue-200 text-gray-100"
     >
-      Счёт в пределах 10
+      {{title}}
     </div>
     <div class="px-1">
-      <math-row
+      <div
+        class="p-1 flex my-1"
         v-for="(item, index) in arr"
         :key="index"
-        :example="item"
-        @set-result="setResult"
         :id="item.idx"
-      ></math-row>
+      >
+        <div class="text-3xl font-bold w-1/6">{{ item.first }}</div>
+        <div class="text-3xl font-bold w-1/6">{{ item.znak }}</div>
+        <div class="text-3xl font-bold w-1/6">{{ item.second }}</div>
+        <div class="text-3xl font-bold w-1/6">=</div>
+        <div
+          class="border-b-2 border-teal-800 ml-auto text-3xl font-bold w-2/6"
+        >
+          <input class="w-full" type="number" v-model="item.result" />
+        </div>
+      </div>
     </div>
     <div class="p-2 border-t border-teal-800 flex">
       <button class="btn btn-primary" @click="generateArrQ(amount)">
@@ -25,17 +34,25 @@
       </button>
     </div>
   </div>
-  <result :result="res" v-show="resultShow" @result-show="result" @result-invalid="resultInvalid"/>
+  <result
+    :result="res"
+    v-show="resultShow"
+    @result-show="result"
+    @result-invalid="resultInvalid"
+  />
 </template>
 
 <script>
-import MathRow from "../../components/MathRow.vue";
-import Result from "../../components/Result.vue";
+import Result from "./Result.vue";
 
-import { generateArr, result } from "../../utils/Maths";
+import { generateArr, genArraMultiply, result } from "../utils/Maths";
 
 export default {
-  components: { MathRow, Result },
+  components: { Result },
+  props: {
+    typeMaths: String,
+    title:String
+  },
   name: "Math",
   data() {
     return {
@@ -46,14 +63,7 @@ export default {
         fail: 0,
       },
       arr: [],
-      primer: {
-        first: 0,
-        second: 0,
-        znak: "",
-        result: "",
-        validity: -1,
-      },
-      amount: 8,
+      amount: 9,
     };
   },
   computed: {
@@ -65,7 +75,13 @@ export default {
     generateArrQ: function(amount) {
       this.arr = [];
       setTimeout(() => {
-        this.arr = generateArr(amount);
+        if (this.typeMaths == "20") {
+          this.arr = generateArr(amount, 20);
+        } else if (this.typeMaths == "*") {
+          this.arr = genArraMultiply(amount);
+        } else {
+          this.arr = generateArr(amount);
+        }
       }, 0);
     },
     result: function() {
@@ -90,9 +106,9 @@ export default {
     resultInvalid() {
       let arrr = [...this.arr];
       for (let i = 0; i < arrr.length; i++) {
-        if (arrr[i].result == arrr[i].validity) {
+        if (arrr[i].result != "" && arrr[i].result == arrr[i].validity) {
           document.getElementById(i).classList.remove("text-red-700");
-        }else{
+        } else {
           document.getElementById(i).classList.add("text-red-700");
         }
       }

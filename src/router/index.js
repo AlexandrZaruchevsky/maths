@@ -4,7 +4,7 @@ const routes = [
   {
     path:'/',
     name:'Math',
-    component:()=>import('../views/Maths/Math.vue')
+    component:()=>import('../views/Maths/Math10.vue')
   },
   {
     path:'/math20',
@@ -14,7 +14,7 @@ const routes = [
   {
     path:'/multi',
     name:'Multi',
-    component:()=>import('../views/Maths/Multiply.vue')
+    component:()=>import('../views/Maths/MathMulti.vue')
   },
   {
     path: '/:catchAll(.*)',

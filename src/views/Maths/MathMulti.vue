@@ -13,8 +13,8 @@ export default {
   },
   data() {
     return {
-      title: "Счет в пределах 20",
-      typeMaths: "20",
+      title: "Таблица умножения",
+      typeMaths: "*",
     };
   },
 };

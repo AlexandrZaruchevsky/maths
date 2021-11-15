@@ -1,3 +1,8 @@
+#Deploy on Heroku
+
+-> http://varvara-z.herokuapp.com/
+
+
 # vue-3-app-with-tailwind
 
 ## Project setup
